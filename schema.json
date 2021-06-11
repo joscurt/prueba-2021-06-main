@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "minLength": 3,
+            "description": "Please enter your name"
+        },
+        "vegetarian": {
+            "type": "boolean"
+        },
+        "birthDate": {
+            "type": "string",
+            "format": "date"
+        },
+        "nationality": {
+            "type": "string",
+            "enum": [
+                "DE",
+                "IT",
+                "JP",
+                "US",
+                "RU",
+                "Other"
+            ]
+        },
+        "personalData": {
+            "type": "object",
+            "properties": {
+                "age": {
+                    "type": "integer",
+                    "description": "Please enter your age."
+                },
+                "height": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "age",
+                "height"
+            ]
+        },
+        "occupation": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "occupation",
+        "nationality"
+    ],
+    "css": "bootstrap"
+}

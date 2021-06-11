@@ -1,0 +1,21 @@
+{
+    "name": "reactive/prueba202106",
+    "authors": [
+        {
+            "name": "Dennis Tobar",
+            "email": "dennis.tobar@gmail.com"
+        }
+    ],
+    "description": "Repositorio que contiene prueba de programación para aspirantes a Woken",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "scripts": {
+        "pu": "./vendor/bin/phpunit "
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}

@@ -43,6 +43,14 @@ class Form
         $cinput = '';
         $cinputparametros = '';
 
+        //ejecuto la funcion createLabel() para asignar al input respectivo , detecta el nombre posterior a la etiqueta properties que es la $key del array(formato schema xD)
+        if( isset( $key ) ) {
+          // var_dump($key);exit;
+            $datainput["label"] = $key;
+            $label = $this->crearLabel( $datainput["label"] );
+            $cinput .= $label;
+          }
+
         // Creo el Select del schema, consulto si existe la etiqueta "enum" y luego recorro para listar los values
         if(isset($datainput["enum"])) {
         // $cinputparametros = $datainput["enum"];
@@ -57,8 +65,8 @@ class Form
 
   			$cinput .= '</select><br></div>'.PHP_EOL;
 
-
   		}
+
   		elseif (isset($datainput["format"])){
   			$cinput .= '<div class="select is-primary">'.PHP_EOL;
   			$cinputparametros = "type=date".PHP_EOL;
@@ -74,5 +82,13 @@ class Form
   			$cinput .= '<input '.$cinputparametros.'/>'.PHP_EOL;
   		}
       return $cinput;
+    }
+    function crearLabel($datalabel){
+
+      if(is_array($datalabel)){
+        $datalabel = json_decode($datalabel,true);
+      }
+      $datalabel = '<label '.$datalabel.'>'.$datalabel.'</label>'.PHP_EOL;
+      return $datalabel;
     }
 }
